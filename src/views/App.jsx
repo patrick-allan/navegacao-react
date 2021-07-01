@@ -1,14 +1,11 @@
-import './App.css'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
-import Content from '../components/layout/Content'
+import Router from '../router'
 
-const App = props => (
-    <div className="App">
-        <BrowserRouter>             
-            <Content />
-        </BrowserRouter>
-    </div>
+const App = () => (
+    <BrowserRouter>
+        <Router />
+    </BrowserRouter>
 )
 
 export default App
