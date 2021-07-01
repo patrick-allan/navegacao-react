@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-import './Login.css'
-import { Navbar } from 'react-bootstrap'
 import { Redirect } from "react-router-dom";
+import { Navbar, Alert } from 'react-bootstrap'
 import UsersService from '../../services/user';
-import { Alert } from 'bootstrap';
+import './Login.css'
 
 const LoginView = props => {
     const [email, setEmail] = useState('')
@@ -30,7 +29,7 @@ const LoginView = props => {
             <div className="outer">
                 <div className="inner">
                     <form onSubmit={handleSubmit}>
-                        <h3>Atendimento Unipar</h3>
+                        <h3>Roteamento App</h3>
 
                         <div className="form-group">
                             <label>Usuário</label>
