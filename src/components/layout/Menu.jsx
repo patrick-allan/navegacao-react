@@ -33,7 +33,9 @@ const Menu = (props) => {
                         <NavDropdown title="Parâmetros" id="basic-nav-dropdown">
                             <NavDropdown.Item as={Link} to="/param/123">Exemplo 01</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/param/Patrick">Exemplo 02</NavDropdown.Item>
-                        </NavDropdown>
+                        </NavDropdown>                        
+                    </Nav>
+                    <Nav>
                         <Nav.Link as={Link} to="/about">Sobre</Nav.Link>
                     </Nav>
                     <Form inline onSubmit={handleSubmit}>

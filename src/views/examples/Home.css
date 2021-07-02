@@ -1,0 +1,8 @@
+.info-aluno>p{
+    margin-top: 0;
+    margin-bottom: .25rem;    
+}
+
+.card-header>form>.input-group{
+    margin-bottom: 0!important;
+}

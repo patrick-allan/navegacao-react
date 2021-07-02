@@ -14,22 +14,22 @@ const LoginView = props => {
         e.preventDefault();
 
         try {
-            await UsersService.login({email: email, password: password});
-            setRedirectToHome(true);       
-        } catch (error) {            
+            await UsersService.login({ email: email, password: password });
+            setRedirectToHome(true);
+        } catch (error) {
             setError(true)
         }
     }
 
     if (redirectToHome)
-        return <Redirect to={{pathname: "/"}} />
+        return <Redirect to={{ pathname: "/" }} />
 
-    return(
-        <div className="Login">
-            <div className="outer">
+    return (
+        <div class="jumbotron d-flex align-items-center min-vh-100">
+            <div class="container">
                 <div className="inner">
                     <form onSubmit={handleSubmit}>
-                        <h3>Roteamento App</h3>
+                        <h3 className="text-center">Roteamento App</h3>
 
                         <div className="form-group">
                             <label>Usuário</label>
@@ -45,7 +45,9 @@ const LoginView = props => {
                     </form>
                 </div>
             </div>
-            <Navbar className="text-end" fixed="bottom">.:: Patrick Allan ::.</Navbar>
+            <Navbar fixed="bottom">
+                <p className="mx-auto">.:: Patrick Allan ::.</p>
+            </Navbar>
         </div>
     )
 }
