@@ -4,15 +4,14 @@ import { Card, Button } from 'react-bootstrap'
 import AlunoService from '../../services/aluno'
 
 
-const Home = props => {
-    const [aluno, setAluno] = useState([]);    
-    const [searchAluno, setSeachAluno] = useState({cd_matricula: "", ds_nome: ""})
+const Home = props => {        
+    const [aluno, setAluno] = useState(false);        
 
     const handleAlunos = async (param) => {
         console.log('handleAlunos')
         try {
-            const aluno = await AlunoService.buscarAluno(136597);            
-            setSeachAluno(JSON.stringify(aluno.data))                                  
+            const aluno = await AlunoService.buscarAluno(136597)            
+            setAluno(aluno.data)                      
         } catch(error) {
             console.log(error)
         }
@@ -23,7 +22,7 @@ const Home = props => {
     }
 
     useEffect(() => {
-        fetchAluno();
+        fetchAluno();        
     }, []);
 
     return (
@@ -33,11 +32,16 @@ const Home = props => {
                 <Card.Header as="h5">Início</Card.Header>
                 <Card.Body className="text-center">
                     <Button onClick={handleAlunos}>Pesquisar</Button>
-                    <Card.Text>
-                        {aluno}
-                        Some quick example text to build on the card title and make up the bulk of
-                        the card's content.
-                    </Card.Text>
+                    <p>{aluno['cd_aluno']}</p>
+                    <p>{aluno['cd_matricula']}</p>
+                    <p>{aluno['ds_nome']}</p>
+                    <p>{aluno['ds_cpf']}</p>
+                    <p>{aluno['ds_rg']}</p>
+                    <p>{aluno['dt_nascimento']}</p>
+                    {/* <img src={`data:image/jpeg;base64,${aluno['ds_foto']}`} alt="Foto do Aluno"></img>                     */}
+                    
+                    {aluno['ds_foto'] ? <img src={`data:image/jpeg;base64,${aluno['ds_foto']}`} alt="Foto do Aluno"></img> : ""}
+                    
                 </Card.Body>
                 <Card.Footer className="text-muted text-right">2 days ago</Card.Footer>
             </Card>
